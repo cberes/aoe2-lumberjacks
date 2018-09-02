@@ -10,6 +10,10 @@ footer {
   margin: 5em auto 0;
   padding: 0;
 }
+blockquote, p, footer {
+  width: 90%;
+  max-width: 48em;
+}
 input.small {
   width: 5em;
 }
