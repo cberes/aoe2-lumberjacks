@@ -35,9 +35,12 @@ fast speed = divide time by 2
     };
 
     function LumberCamp(width, height, x0, y0) {
+        var halfWidth = parseInt(width / 2);
+        var halfHeight = parseInt(height / 2);
+
         this.isOnTile = function (x, y) {
-            return x >= x0 - (width / 2) && x <= x0 + (width / 2) &&
-                    y >= y0 - (height / 2) && y <= y0 + (height / 2);
+            return x >= x0 - halfWidth && x < x0 + halfWidth &&
+                    y >= y0 - halfHeight && y < y0 + halfHeight;
         };
 
         this.tiles = function () {
@@ -109,23 +112,17 @@ fast speed = divide time by 2
             return totalTime;
         }
 
-        function getLumberCamp(size) {
-            // TODO allow lumber camp position to be changed
-            return new LumberCamp(2, 2, size.x / 2, size.y / 2);
-        }
-
-        this.timeToClearMap = function (size, speed) {
-            let lumberCamp = getLumberCamp(size);
+        this.timeToClearMap = function (size, lumberCamp, speed) {
             let totalTime = calculateTimeToClearMap(size, lumberCamp);
             return totalTime / speed.multiplier;
         };
 
-        this.trees = function (size) {
-            return size.x * size.y - getLumberCamp(size).tiles();
+        this.trees = function (size, lumberCamp) {
+            return size.x * size.y - lumberCamp.tiles();
         };
 
-        this.wood = function (size) {
-            return this.trees(size) * WOOD_PER_TREE;
+        this.wood = function (size, lumberCamp) {
+            return this.trees(size, lumberCamp) * WOOD_PER_TREE;
         };
     }
 
@@ -177,7 +174,9 @@ fast speed = divide time by 2
             treesElement = d.getElementById('trees'),
             woodElement = d.getElementById('wood'),
             sizeElement = d.getElementById('size'),
-            speedElement = d.getElementById('speed');
+            speedElement = d.getElementById('speed'),
+            lumberCampXElement = d.getElementById('lumber_camp_x'),
+            lumberCampYElement = d.getElementById('lumber_camp_y');
 
         function fillSelect(select, options, defaultValue) {
             for (let i = 0; i < options.length; ++i) {
@@ -192,9 +191,12 @@ fast speed = divide time by 2
         this.run = function () {
             let size = MapSize.values()[parseInt(sizeElement.value)];
             let speed = GameSpeed.values()[parseInt(speedElement.value)];
-            let totalTime = calculator.timeToClearMap(size, speed);
-            let trees = calculator.trees(size);
-            let wood = calculator.wood(size);
+            let lumberCamp = new LumberCamp(2, 2, size.x / 2, size.y / 2);
+            let totalTime = calculator.timeToClearMap(size, lumberCamp, speed);
+            let trees = calculator.trees(size, lumberCamp);
+            let wood = calculator.wood(size, lumberCamp);
+            lumberCampXElement.value = lumberCamp.x();
+            lumberCampYElement.value = lumberCamp.y();
             timeElement.innerText = timeFormat.format(totalTime);
             treesElement.innerText = trees;
             woodElement.innerText = wood;

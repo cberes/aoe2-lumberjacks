@@ -10,3 +10,6 @@ footer {
   margin: 5em auto 0;
   padding: 0;
 }
+input.small {
+  width: 5em;
+}
