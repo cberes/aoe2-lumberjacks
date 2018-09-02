@@ -176,7 +176,8 @@ fast speed = divide time by 2
             sizeElement = d.getElementById('size'),
             speedElement = d.getElementById('speed'),
             lumberCampXElement = d.getElementById('lumber_camp_x'),
-            lumberCampYElement = d.getElementById('lumber_camp_y');
+            lumberCampYElement = d.getElementById('lumber_camp_y'),
+            centerLumberCampElement = d.getElementById('center_lumber_camp');
 
         function fillSelect(select, options, defaultValue) {
             for (let i = 0; i < options.length; ++i) {
@@ -188,24 +189,46 @@ fast speed = divide time by 2
             }
         }
 
-        this.run = function () {
+        function updateCenter() {
+            console.log('update');
+            if (centerLumberCampElement.checked) {
+                let size = MapSize.values()[parseInt(sizeElement.value)];
+                lumberCampXElement.value = parseInt(size.x / 2);
+                lumberCampYElement.value = parseInt(size.y / 2);
+            }
+        }
+
+        function toggleCentered() {
+            console.log(centerLumberCampElement.checked);
+            let checked = centerLumberCampElement.checked;
+            lumberCampXElement.disabled = checked;
+            lumberCampYElement.disabled = checked;
+            run();
+        }
+
+        function run() {
+            updateCenter();
             let size = MapSize.values()[parseInt(sizeElement.value)];
             let speed = GameSpeed.values()[parseInt(speedElement.value)];
-            let lumberCamp = new LumberCamp(2, 2, size.x / 2, size.y / 2);
+            let lumberCamp = new LumberCamp(2, 2, parseInt(lumberCampXElement.value), parseInt(lumberCampYElement.value));
             let totalTime = calculator.timeToClearMap(size, lumberCamp, speed);
             let trees = calculator.trees(size, lumberCamp);
             let wood = calculator.wood(size, lumberCamp);
-            lumberCampXElement.value = lumberCamp.x();
-            lumberCampYElement.value = lumberCamp.y();
             timeElement.innerText = timeFormat.format(totalTime);
             treesElement.innerText = trees;
             woodElement.innerText = wood;
         }
+        this.run = run;
 
         fillSelect(sizeElement, MapSize.values(), defaultSize);
         fillSelect(speedElement, GameSpeed.values(), defaultSpeed);
+        updateCenter();
+
+        centerLumberCampElement.addEventListener('click', toggleCentered);
         sizeElement.addEventListener('change', this.run);
         speedElement.addEventListener('change', this.run);
+        lumberCampXElement.addEventListener('change', this.run);
+        lumberCampYElement.addEventListener('change', this.run);
     }
 
     d.onreadystatechange = function () {
