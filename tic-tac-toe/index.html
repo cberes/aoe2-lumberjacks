@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tic tac toe</title>
+    <meta charset="utf-8"/>
+    <script src="tic-tac-toe.js"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+      .tile {
+        text-align: center;
+        width: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tic tac toe</h1>
+    </header>
+    <section id="main">
+      <p>You are <code>X</code>. Go first.</p>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/><br>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/><br>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/>
+      <input class="tile" type="text" maxlength="1"/>
+      <p><button id="reset">Reset</button></p>
+      <p id="status"></p>
+    </section>
+    <footer>
+      <p>
+        &copy; 2020 Corey Beres.
+        Source available at <a href="https://github.com/cberes/javascript-projects/">GitHub</a>.
+      </p>
+    </footer>
+  </body>
+</html>
