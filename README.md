@@ -1,5 +1,7 @@
 # javascript-projects
 
+My solutions to some simple problems, implemented with Javascript.
+
 ## aoe2-lumberjacks
 
 Lumberjack simulator for Age of Empires II.
@@ -18,4 +20,4 @@ A chart about perks in Fallout 76. This was accurate when the game was released 
 
 ## monte-hall
 
-Simulates the Monte Hall problem using JavaScript.
+Simulates the Monte Hall problem using JavaScript. I implemented this using [Clojure](https://github.com/cberes/monte-hall-clj) as well.
