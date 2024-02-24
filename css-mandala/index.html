@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mandala?</title>
+    <meta charset="utf-8"/>
+    <style>
+      html, body {
+        margin: 5vh 0 0 10vw;
+        padding: 0;
+      }
+      footer {
+        position: relative;
+        top: 80vmin;
+      }
+      .mandala {
+        position: relative;
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+      .mandala * {
+        border-radius: 50%;
+        width: 50vmin;
+        height: 50vmin;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: 50% 75%;
+        filter: opacity(20%);
+        animation: 9s linear rotate infinite;
+      }
+      .mandala *:nth-child(odd) {
+        animation-direction: reverse;
+      }
+      .s0 {
+        background-color: #C62828;
+      }
+      .s1 {
+        background-color: #F44336;
+        animation-delay: -750ms;
+      }
+      .s2 {
+        background-color: #FF6F00;
+        animation-delay: -1500ms;
+      }
+      .s3 {
+        background-color: #F4D03F;
+        animation-delay: -2250ms;
+      }
+      .s4 {
+        background-color: #8BC34A;
+        animation-delay: -3000ms;
+      }
+      .s5 {
+        background-color: #2E7D32;
+        animation-delay: -3750ms;
+      }
+      .s6 {
+        background-color: #26A69A;
+        animation-delay:-4500ms;
+      }
+      .s7 {
+        background-color: #00897B;
+        animation-delay: -5250ms;
+      }
+      .s8 {
+        background-color: #1565C0;
+        animation-delay: -6000ms;
+      }
+      .s9 {
+        background-color: #7E57C2;
+        animation-delay: -6750ms;
+      }
+      .s10 {
+        background-color: #880E4F;
+        animation-delay: -7500ms;
+      }
+      .s11 {
+        background-color: #3949AB;
+        animation-delay: -8250ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mandala">
+      <div class="s0"></div>
+      <div class="s1"></div>
+      <div class="s2"></div>
+      <div class="s3"></div>
+      <div class="s4"></div>
+      <div class="s5"></div>
+      <div class="s6"></div>
+      <div class="s7"></div>
+      <div class="s8"></div>
+      <div class="s9"></div>
+      <div class="s10"></div>
+      <div class="s11"></div>
+    </div>
+    <footer>&copy; 2018 Corey Beres. Source available at <a href="https://github.com/cberes/javascript-projects/">GitHub</a>.</footer>
+  </body>
+</html>
+

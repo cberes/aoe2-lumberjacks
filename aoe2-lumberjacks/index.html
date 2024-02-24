@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>AOE2 Lumberjack simulator</title>
+    <meta charset="utf-8"/>
+    <meta property="og:title" content="AOE2 Lumberjack simulator"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://aoe2.club"/>
+    <meta property="og:image" content="http://aoe2.club/assets/image/preview.png"/>
+    <meta property="og:description" content="A giant Forest Nothing map has a lot of trees. How long would it take one lumberjack to cut them all? Dark age, 1 lumberjack, no coffee breaks."/>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <script src="lumberjack.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Age of Empires 2: Lumberjack simulator</h1>
+    </header>
+    <section id="intro">
+      <blockquote cite="https://www.youtube.com/watch?v=tkpOA1uuCkk">
+        A giant Forest Nothing map has a lot of trees. How long would it take one lumberjack to cut them all? Dark age, 1 lumberjack, no coffee breaks.
+      </blockquote>
+      <cite>
+        <a href="https://www.youtube.com/watch?v=tkpOA1uuCkk">Spirit of the Law</a>
+      </cite>
+    </section>
+    <section id="main">
+      <h2>Map configuration</h2>
+      <ul>
+        <li><label for="size">Map size:</label> <select id="size"></select></li>
+        <li><label for="speed">Speed:</label> <select id="speed"></select></li>
+	<li>
+          <label for="center_lumber_camp">Center Lumber Camp on map?</label>
+          <input id="center_lumber_camp" type="checkbox" checked>
+	</li>
+        <li>
+          <label for="lumber_camp_x">Lumber Camp center (x):</label>
+          <input id="lumber_camp_x" class="small" type="number" disabled>
+	</li>
+	<li>
+          <label for="lumber_camp_y">Lumber Camp center (y):</label>
+          <input id="lumber_camp_y" class="small" type="number" disabled>
+        </li>
+      </ul>
+      <h2>How long would it take?</h2>
+      <ul>
+        <li>Trees: <span id="trees"></span></li>
+        <li>Wood: <span id="wood"></span></li>
+        <li>Time: <span id="time"></span></li>
+      </ul>
+    </section>
+    <footer>
+      <p>
+        &copy; 2018 Corey Beres.
+        Source available at <a href="https://github.com/cberes/javascript-projects/">GitHub</a>.
+      </p>
+    </footer>
+  </body>
+</html>
