@@ -1,1 +1,3 @@
-# aoe2.club
+# aoe2-lumberjacks
+
+Lumberjack simulator for Age of Empires II.
